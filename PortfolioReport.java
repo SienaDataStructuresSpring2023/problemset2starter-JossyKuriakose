@@ -8,8 +8,8 @@ import java.io.FileNotFoundException;
  * accordingly.  Then, this program prints the portfolio report
  * as described in the problem set 2 instructions.
  *
- * @author 
- * @version 
+ * @author Joe Kuriakose
+ * @version 2/16/2023
  */
 public class PortfolioReport
 {
@@ -42,8 +42,8 @@ public class PortfolioReport
         System.out.println();
         
         // Uncomment the lines of code below and complete the print statements to work as intended.
-        // System.out.println(String.format("      Current Value:  $%,15.2f", //YOUR CODE HERE.));
-        // System.out.println(String.format("Lifetime Investment:  $%,15.2f", //YOUR CODE HERE.));
-        // System.out.println(String.format("    Lifetime Payout:  $%,15.2f", //YOUR CODE HERE.));
+         System.out.println(String.format("      Current Value:  $%,15.2f", //YOUR CODE HERE.));
+         System.out.println(String.format("Lifetime Investment:  $%,15.2f", //YOUR CODE HERE.));
+         System.out.println(String.format("    Lifetime Payout:  $%,15.2f", //YOUR CODE HERE.));
     }
 }
