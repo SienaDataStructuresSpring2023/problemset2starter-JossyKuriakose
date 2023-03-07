@@ -50,8 +50,11 @@ public class Portfolio
      */
     private int getIndex(String symbol){
         int i = 0;
-        while(i < stocks.size() && stocks.get(i).getSymbol().equals(symbol)){
-            return i;
+        while(i < stocks.size()){
+            if(stocks.get(i).getSymbol().equals(symbol)){
+             return i;
+            }
+            i++;
         }
         return -1;
     }
@@ -76,7 +79,6 @@ public class Portfolio
             stocks.get(i).buyShares(numShares, price);
             lifeTimeInvestment += numShares * price;
         }
-
         return numShares * price;
     }
 
@@ -97,14 +99,15 @@ public class Portfolio
             //        lifeTimePayOut += numShares * price;
             //    }
 
-            stocks.get(i).sellShares(numShares);
-            price = numShares * stocks.get(i).getPrice();
-            lifeTimePayOut += numShares * price;
+            price = stocks.get(i).sellShares(numShares);
+            //price = numShares * stocks.get(i).getPrice();
+            lifeTimePayOut += price;
             if(stocks.get(i).getNumShares() == 0){
                 stocks.remove(stocks.get(i));
             }
         }
-        return lifeTimePayOut;
+        
+        return price;
     }
 
     /**
