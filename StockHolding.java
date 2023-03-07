@@ -70,7 +70,7 @@ public class StockHolding
       * @param pricePerShare represents the price of a share of stock.
       */
      public void buyShares(double numberOfShares, double pricePerShare){
-        this.numShares = numShares;
+        this.numShares += numberOfShares;
         this.price = pricePerShare;
         }
      
@@ -83,8 +83,8 @@ public class StockHolding
      public double sellShares(int numberOfShares){
         double sold = 0;
         if(numberOfShares <= numShares){
+         sold = numberOfShares * price;
          numShares = numShares - numberOfShares;
-         sold = numShares * price;
         }
         else{
           numShares = numShares;
@@ -105,3 +105,4 @@ public class StockHolding
          symbol, name, numShares, price, numShares * price); 
      }
 }
+
