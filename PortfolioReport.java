@@ -29,16 +29,20 @@ public class PortfolioReport
         while(file.hasNext()){
             String line = file.nextLine();
             String[] data = line.split(",");
+            
             if(data[0].equals("B")){
                 //Buy the stock for the portfolio.
                 //YOUR CODE HERE.
-                p.buyStock("SQ", "Block",95 ,88.29 );
-                p.buyStock("DIS", "Walt Disney", 315, 113.23);
-                p.buyStock("AMZN", "Amazon", 30, 112.27);
+                int numShares = Integer.parseInt(data[3].trim());
+                double price = Double.parseDouble(data[4].trim());
+                p.buyStock(data[1], data[2], numShares, price);
+                //p.buyStock("DIS", "Walt Disney", 315, 113.23);
+                //p.buyStock("AMZN", "Amazon", 30, 112.27);
             } else {
                 //Sell the stock from the portfolio.
                 //YOUR CODE HERE.
-                p.sellStock("SQ",45);
+                int numShares = Integer.parseInt(data[2].trim());
+                p.sellStock(data[1], numShares);
             }
         }
 
@@ -51,3 +55,4 @@ public class PortfolioReport
          System.out.println(String.format("    Lifetime Payout:  $%,15.2f", p.getLifeTimePayOut()));
     }
 }
+
